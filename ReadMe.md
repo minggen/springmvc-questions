@@ -2,7 +2,8 @@
 
 xml与javaConfig 配置同一个拦截器 ，javaConfig 对 swagger /v2/api-doc 不生效
 
-`com.example.demo.config.AutoConfig`
+
+我在github 上传了一个 简单工程（https://github.com/minggen/springmvc-questions） ,修改 `com.example.demo.config.AutoConfig` 可以复现
 
 当使用 xml配置时，访问 http://localhost:8080/v2/api-docs 接口是 没有返回的
 当打开注释 使用javaConfig时 ,正常返回不会被拦截。
