@@ -27,3 +27,20 @@ debug代码时，发现`InterceptorRegistration `将`HandlerInterceptor` 包装 
 						obtainApplicationContext(), MappedInterceptor.class, true, false).values());
 	}
 ```
+
+
+
+
+When i debugging the code, I  found ，
+`InterceptorRegistration` will wrap the custom interceptor into an instance of the `MappedInterceptor` class,
+and then put the instance into `interceptors`,
+but not into the `applicationContext`,
+
+```java
+mappedInterceptors.addAll(
+	BeanFactoryUtils.beansOfTypeIncludingAncestors(
+		obtainApplicationContext(), MappedInterceptor.class, true, false).values());
+```
+
+ `adaptedInterceptors` cannot be added for` PropertySourcedRequestMappingHandlerMapping`
+As a result,  the interceptor not to take effect
